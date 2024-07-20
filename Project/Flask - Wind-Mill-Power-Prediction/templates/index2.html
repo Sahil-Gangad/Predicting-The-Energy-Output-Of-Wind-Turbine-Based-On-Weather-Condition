@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        :root {
+            --a: #6c4b3c;
+            --b: #f2d299;
+        }
+
+        body {
+            background-color: var(--b);
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        .navbar {
+            height: 70px;
+            background-color: var(--a);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100vw;
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: 800;
+            margin-left: 30px;
+            color: white;
+        }
+
+        .element {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 110px;
+        }
+
+        .element_a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .element_a a {
+            font-size: 18px;
+            margin-right: 25px;
+            color: white;
+        }
+
+        .home_navbar,
+        .about_navbar {
+            text-decoration: none;
+        }
+
+        .profile img {
+            position: relative;
+        }
+
+        .box_profile {
+            height: 400px;
+            width: 300px;
+            position: fixed;
+            background-color: #fffccf;
+            border: 2px solid black;
+            right: 50px;
+            top: 60px;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .box_profile .name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+            height: 90px;
+        }
+
+        .box_profile .name img {
+            height: 50px;
+        }
+
+        .box_profile .college {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+            gap: 5px;
+            margin-left: 5px;
+        }
+
+        .box_profile .college h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .college p {
+            font-size: 17px;
+        }
+
+        .box_profile .branch {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+            gap: 5px;
+            margin-left: 5px;
+        }
+
+        .box_profile .branch h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .branch p {
+            font-size: 17px;
+        }
+
+        .box_profile .enrollment {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+            gap: 5px;
+            margin-left: 5px;
+        }
+
+        .box_profile .enrollment h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .enrollment p {
+            font-size: 17px;
+        }
+
+        .box_profile .contact {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+            gap: 5px;
+            margin-left: 5px;
+        }
+
+        .box_profile .contact h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .contact p {
+            font-size: 17px;
+        }
+
+        .box_profile .gmail {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 15px;
+            gap: 5px;
+            margin-left: 5px;
+        }
+
+        .box_profile .gmail h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .gmail p {
+            font-size: 17px;
+        }
+
+        .box_profile .gmail p a {
+            text-decoration: none;
+        }
+
+        .box_profile .theme {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+            margin-left: 5px;
+        }
+
+        .box_profile .theme h4 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .box_profile .theme .themer {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .box_profile .theme .circle {
+            height: 38px;
+            width: 38px;
+            border-radius: 50px;
+            background-color: black;
+            border: 2px solid black;
+        }
+
+        .box_profile .theme #circle1 {
+            /* #6c4b3c*/
+            background-color: #6c4b3c;
+        }
+
+        .box_profile .theme #circle2 {
+            /* #FFEAE3*/
+            background-color: #121481;
+        }
+
+        .box_profile .theme #circle3 {
+            /* #FA9884 */
+            background-color: #E74646;
+        }
+
+        .box_profile .theme #circle4 {
+            /* #758694 */
+            background-color: #405D72;
+        }
+
+        .box_profile .theme .circle:hover {
+            cursor: pointer;
+        }
+
+
+
+        .about {
+            height: 80vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .left_box {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+        }
+
+        #cityList::placeholder {
+            text-align: center;
+          }
+
+        .form_city {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .form_city p {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .form_city input {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--a);
+            height: 35px;
+            width: 200px;
+            border: none;
+            border-radius: 20px;
+            padding-left: 10px;
+            background-color: #cfd8ff;
+        }
+
+        .form_city button {
+            font-size: 17px;
+            font-weight: 500;
+            background-color: var(--a);
+            color: white;
+            height: 40px;
+            width: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .city_info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .city_info p {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .city_info .table li {
+            font-size: 20px;
+            font-weight: 500;
+            list-style: none;
+        }
+
+        .city_info .table {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 130px;
+        }
+
+        .city_info .table_left ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .city_info .table_right ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .right_box {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+        }
+
+        .measurement {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .measurement p {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .measurement .input_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .measurement .input_box select {
+            font-weight: 500;
+            color: var(--a);
+            height: 38px;
+            width: 240px;
+            border: none;
+            border-radius: 10px;
+            padding-left: 10px;
+            background-color: #cfd8ff;
+            appearance: none;
+        }
+
+        .measurement button {
+            font-size: 17px;
+            font-weight: 500;
+            background-color: var(--a);
+            color: white;
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .prediction p {
+            font-size: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="heading">
+                <h3>
+                    Wind Turbine Energy Prediction Based on Weather Conditions
+                </h3>
+            </div>
+            <div class="element">
+                <div class="element_a">
+                    <a href="/" class="about_navbar">
+                        <p>Home</p>
+                    </a>
+                    <a href="/predict" class="project_navbar">
+                        <p>Project</p>
+                    </a>
+                </div>
+                <div class="profile">
+                    <img src="/static/image.png" height="40px" alt="">
+                    <div class="box_profile" style="display: none;">
+                        <div class="name">
+                            <img src="/static/image.png" height="40px" alt="">
+                            <p>Sahil Babaji Gangad</p>
+                        </div>
+                        <div class="college">
+                            <h4>College :</h4>
+                            <p>Goverment Polytechnic Mumbai</p>
+                        </div>
+                        <div class="branch">
+                            <h4>Branch :</h4>
+                            <p>AI&ML</p>
+                        </div>
+                        <div class="enrollment">
+                            <h4>Enrollment :</h4>
+                            <p>FE22AI001</p>
+                        </div>
+                        <div class="contact">
+                            <h4>Contact :</h4>
+                            <p>7620805015</p>
+                        </div>
+                        <div class="gmail">
+                            <h4>Gmail :</h4>
+                            <p><a href="#">fe22ai001sahil@gmail.com</a></p>
+                        </div>
+                        <div class="theme">
+                            <h4>Theme :</h4>
+                            <div class="themer">
+                                <div class="circle" id="circle1"></div>
+                                <div class="circle" id="circle2"></div>
+                                <div class="circle" id="circle3"></div>
+                                <div class="circle" id="circle4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_page">
+            <div class="about">
+                <div class="left_box">
+                    <div class="form_city">
+                        <p>Give your city name to know the weather conditions..</p>
+                        <input type="text" id="cityList" placeholder="Enter Your City Name" >
+                        <button onclick="getSelectedCity()">Check The Weather Condictions</button>
+                    </div>
+                    <div class="city_info">
+                        <p>The weather conditions of the city are</p>
+                        <div class="table">
+                            <div class="table_left">
+                                <ul>
+                                    <li>Temperature</li>
+                                    <li>Humidity</li>
+                                    <li>Pressure</li>
+                                    <li>Wind Speed</li>
+                                </ul>
+                            </div>
+                            <div id="weatherData" class="table_right">
+                                <ul>
+                                    <li id="temperature"></li>
+                                    <li id="humidity"></li>
+                                    <li id="pressure"></li>
+                                    <li id="windSpeed"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_box">
+                    <div class="measurement">
+                        <p>Predict the Wind Energy!!</p>
+                        <div class="input_box">
+                            <select id="Theoretical_Power">
+                                <option value="city1">Theoretical Power in KWh</option>
+                            </select>
+                        </div>
+                        <button onclick="getPrediction()">Predict</button>
+                    </div>
+                    <div class="prediction">
+                        <p id="info_pred">The energy predict is <span id="prediction_info">0</span> KWh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="script2.js"></script> -->
+    <script>
+        function getSelectedCity() {
+            const cityList = document.getElementById('cityList');
+
+            const selectedCity = cityList.value;
+            console.log(selectedCity);
+
+            fetch(`/predict/${selectedCity}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    // Update the HTML elements with the response data
+                    document.getElementById('temperature').textContent = data[0] + ' ℃';
+                    document.getElementById('humidity').textContent = data[1] + ' %';
+                    document.getElementById('pressure').textContent = data[2] + ' mmHG';
+                    document.getElementById('windSpeed').textContent = data[3] + ' m/s';
+
+                    // Make the <ul> visible if it was hidden
+                    weatherData.style.display = 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getPrediction() {
+            const cityList = document.getElementById('cityList');
+
+            const selectedCity = cityList.value;
+            console.log(selectedCity);
+
+            fetch(`/predict_info/${selectedCity}`)
+                .then(response => response.json())
+                .then(data1 => {
+                    // Assuming the data structure from Flask is { "prediction": [...], "result": [...] }
+                    const prediction = data1.prediction;
+                    const result = data1.result;
+
+                    // Update the HTML elements with the response data
+                    document.getElementById('temperature').textContent = `${result[0]} ℃`;
+                    document.getElementById('humidity').textContent = `${result[1]} %`;
+                    document.getElementById('pressure').textContent = `${result[2]} mmHG`;
+                    document.getElementById('windSpeed').textContent = `${result[3]} m/s`;
+
+                    // Update the HTML element with prediction info
+                    document.getElementById('prediction_info').textContent = prediction;
+
+                    // Make the <ul> visible if it was hidden
+                    document.getElementById('weatherData').style.display = 'block';
+                    document.getElementById('info_pred').style.display = 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Hide the <ul> when the page loads
+        window.onload = function () {
+            document.getElementById('weatherData').style.display = 'none';
+            document.getElementById('info_pred').style.display = 'none';
+        };
+
+
+        
+        //  ----------------------------------------------------------------------------------------------------------
+
+
+        const profileImg = document.querySelector('.profile img');
+        const profileBox = document.querySelector('.box_profile');
+
+        profileImg.addEventListener('mouseenter', function () {
+            profileBox.style.display = 'block';
+        });
+
+        profileImg.addEventListener('mouseleave', function () {
+
+            // Clear any existing timeout to avoid conflicting timeouts
+            // clearTimeout(timeout);
+
+            // Set a new timeout to hide the profile box after 500 milliseconds (adjust as needed)
+            timeout = setTimeout(function () {
+                profileBox.style.display = 'none';
+            }, 1000); // 500 milliseconds delay
+        });
+
+        profileBox.addEventListener('mouseenter', function () {
+            // Clear any existing timeout to avoid hiding the profile box
+            clearTimeout(timeout);
+
+            // Ensure the profile box stays visible when hovered over
+            profileBox.style.display = 'block';
+        });
+
+        profileBox.addEventListener('mouseleave', function () {
+            // Set a timeout to hide the profile box after leaving it
+            timeout = setTimeout(function () {
+                profileBox.style.display = 'none';
+            }, 500); // 500 milliseconds delay
+        });
+
+
+        
+        // Function to update theme and save state in localStorage
+        function updateThemeAndStorage(aColor, bColor) {
+            document.documentElement.style.setProperty('--a', aColor);
+            document.documentElement.style.setProperty('--b', bColor);
+
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', JSON.stringify({ a: aColor, b: bColor }));
+        }
+
+        // Function to load saved theme from localStorage
+        function loadThemeFromStorage() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                const { a, b } = JSON.parse(savedTheme);
+                document.documentElement.style.setProperty('--a', a);
+                document.documentElement.style.setProperty('--b', b);
+            }
+        }
+
+        // Load saved theme when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            loadThemeFromStorage();
+        });
+
+        // Event listeners for theme buttons
+        const circle1Btn = document.getElementById('circle1');
+        const circle2Btn = document.getElementById('circle2');
+        const circle3Btn = document.getElementById('circle3');
+        const circle4Btn = document.getElementById('circle4');
+
+        circle1Btn.addEventListener('click', function () {
+            updateThemeAndStorage('#6c4b3c', '#f2d299');
+        });
+
+        circle2Btn.addEventListener('click', function () {
+            updateThemeAndStorage('#121481', '#FFEAE3');
+        });
+
+        circle3Btn.addEventListener('click', function () {
+            updateThemeAndStorage('#E74646', '#FA9884');
+        });
+
+        circle4Btn.addEventListener('click', function () {
+            updateThemeAndStorage('#405D72', '#758694');
+        });
+
+    </script>
+</body>
+
+</html>
